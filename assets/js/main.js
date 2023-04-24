@@ -16,12 +16,15 @@ createApp({
     data() {
         return{
             // VARIABILI
-            
+            randomEmail: 0
         }
     },
 
-    created() {
-
+    mounted() {
+        axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then(email=>{
+            console.log(email.data.response)
+            this.randomEmail = email.data.response
+        })
     },	
 
     methods: {
