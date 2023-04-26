@@ -16,18 +16,23 @@ createApp({
     data() {
         return{
             // VARIABILI
-            randomEmail: 0
+            randomEmail: []
         }
     },
 
     mounted() {
-        axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then(email=>{
-            console.log(email.data.response)
-            this.randomEmail = email.data.response
-        })
+        for(i=0; i<10; i++){
+           this.emailRandom()
+        }
     },	
 
     methods: {
         // FUNZIONI
+        emailRandom(){
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then(email=>{
+                console.log(email.data.response)
+                this.randomEmail.push(email.data.response)
+            })  
+        }
     }
 }).mount('#app')

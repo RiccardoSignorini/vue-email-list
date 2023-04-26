@@ -19,7 +19,7 @@
         </div>
         <div>
             <ul>
-                <li v-for="element in 10">{{randomEmail}}</li>
+                <li v-for="(element, index) in randomEmail" :key="index" v-if="randomEmail.length==10">{{element}}</li>
             </ul>
         </div>
     </div>
